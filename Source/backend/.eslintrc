@@ -1,0 +1,151 @@
+{
+  // below is the default configuration
+  "root": true,
+  "$schema": "https://typedoc.org/schema.json",
+  // default configuration
+  "parser": "@typescript-eslint/parser",
+  // default configuration
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": "./tsconfig.json", // Path to your tsconfig.json file
+  },
+  // default configuration
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  // globals variables
+  "globals": {
+    "console": true,
+    "__filename": true,
+    "__dirname": true,
+    "NodeJS": true,
+    "SEQUELIZE": true,
+  },
+  // eslint-rules with type these rules are not custom
+  "rules": {
+    //* Avoid Bugs
+    // Warning on console
+    "no-console": "warn",
+    // Error on undefined terms
+    "no-undef": "error",
+    // Error on not adding semicolon
+    "semi": "error",
+    // Error on adding space before the semicolon
+    "semi-spacing": "error",
+    //* Best Practices
+    // Error on bad type checking condition a == b that should be forced used with type a === b
+    "eqeqeq": "error",
+    "no-invalid-this": "error",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTernary": true,
+      },
+    ],
+    "no-useless-concat": "error",
+    "no-useless-return": "error",
+    "no-constant-condition": "warn",
+    //* Enhance Readability
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+      },
+    ],
+    "no-mixed-spaces-and-tabs": "warn",
+    "space-before-blocks": "error",
+    "space-in-parens": "error",
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+      },
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 500,
+      },
+    ],
+    "keyword-spacing": "error",
+    "multiline-ternary": ["error", "never"],
+    "no-mixed-operators": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 1,
+      },
+    ],
+    "no-whitespace-before-property": "error",
+    "nonblock-statement-body-position": "error",
+    "object-property-newline": [
+      "error",
+      {
+        "allowAllPropertiesOnSameLine": true,
+      },
+    ],
+    //* ES6
+    "arrow-spacing": "error",
+    "no-confusing-arrow": "error",
+    "no-duplicate-imports": "error",
+    "no-var": "error",
+    "object-shorthand": "off",
+    "prefer-const": "error",
+    "prefer-template": "warn",
+    //* typescript
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+      },
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["PascalCase"],
+        "prefix": ["Is", "Should", "Has", "Can", "Did", "Will"],
+      },
+      {
+        "selector": "variable",
+        "modifiers": ["const"],
+        "format": ["UPPER_CASE"],
+      },
+      {
+        "selector": "typeParameter",
+        "format": ["PascalCase"],
+        "prefix": ["T"],
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true,
+        },
+      },
+      {
+        "selector": "enum",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^E[A-Z]",
+          "match": true,
+        },
+      },
+      {
+        "selector": ["variable", "function"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow",
+      },
+    ],
+  },
+}

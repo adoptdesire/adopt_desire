@@ -1,0 +1,17 @@
+#vs code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extension.json
+!.vscode/*.code-snippets
+
+# Local history for visual code
+.history/
+
+#Built visual studio code extension
+*.vsix
+
+#dir
+node_modules
+build

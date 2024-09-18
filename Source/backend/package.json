@@ -1,0 +1,61 @@
+{
+  "name": "backend",
+  "$schema": "./schema.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./build",
+    "build:local": "npm run clean && tsc",
+    "build:production": "npm-run-all lint:fix format clean copy-env && tsc",
+    "copy-env": "mkdir build\\environment && xcopy environment build\\environment /E /I /Y",
+    "start:local": "cd build && SET NODE_ENV=LOCAL&& node src",
+    "start:development": "SET NODE_ENV=DEVELOPMENT&& node src",
+    "start:staging": "SET NODE_ENV=STAGING&& node src",
+    "start:production": "SET NODE_ENV=PRODUCTION&& node src",
+    "local": "SET NODE_ENV=LOCAL&& ts-node src",
+    "local:watch": "nodemon src -e ts,json --exec \"npm run local\"",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "format": "npx prettier --write src",
+    "format:check": "npx prettier --check src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "nodemon": "^3.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.4",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "i": "^0.3.7",
+    "morgan": "^1.10.0",
+    "mysql-connection-pool-manager": "^1.5.9",
+    "mysql2": "^3.7.1",
+    "npm": "^10.8.0",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.2.1",
+    "sequelize": "^6.35.2",
+    "sequelize-typescript": "^2.1.6",
+    "winston": "^3.11.0"
+  }
+}

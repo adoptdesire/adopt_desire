@@ -1,0 +1,11 @@
+<ad-side-nav-header [isFeaturedWorks]="isFeaturedWorks"></ad-side-nav-header> <ad-home-banner></ad-home-banner>
+<ad-about></ad-about>
+<ad-services></ad-services>
+@if (isFeaturedWorks) {
+  <ad-works></ad-works>
+}
+@if (isStates) {
+  <ad-states></ad-states>
+}
+<ad-contact></ad-contact>
+<ad-loader></ad-loader>

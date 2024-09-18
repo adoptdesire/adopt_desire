@@ -1,0 +1,101 @@
+Example of how you might comment on methods and functions related to the ESLint rules mentioned earlier
+
+/**
+ * Retrieves data from the server.
+ * @param {string} url - The URL to fetch data from.
+ * @returns {Promise<any>} - A promise that resolves with the fetched data.
+ */
+async function fetchData(url: string): Promise<any> {
+  // Implementation details...
+}
+
+/**
+ * Adds two numbers.
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} - The sum of the two numbers.
+ */
+function addNumbers(a: number, b: number): number {
+  // Implementation details...
+  return a + b;
+}
+
+/**
+ * Represents a user in the system.
+ * @interface
+ */
+interface User {
+  id: number;
+  username: string;
+  email: string;
+}
+
+/**
+ * Service for managing user-related operations.
+ */
+class UserService {
+  /**
+   * Retrieves a user by their ID.
+   * @param {number} userId - The ID of the user.
+   * @returns {User | null} - The user object or null if not found.
+   */
+  getUserById(userId: number): User | null {
+    // Implementation details...
+    return null;
+  }
+
+  /**
+   * Updates the user's information.
+   * @param {User} user - The user object with updated information.
+   * @returns {boolean} - True if the update was successful, false otherwise.
+   */
+  updateUser(user: User): boolean {
+    // Implementation details...
+    return true;
+  }
+}
+
+/**
+ * Main application entry point.
+ */
+function main() {
+  // Application startup...
+}
+
+// Additional functions and classes...
+
+
+
+Also adding the Generic type of each function
+
+type Fox = {
+  name: "Topangos",
+  isAloof: true
+};
+
+async function requestHelper<T>(url: string): Promise<T> {
+  try {
+    return fetch(url).then((response) => response.json());
+  } catch(err) {
+    //... handle Errors
+  }  
+}
+
+const fox = await requestHelper<Fox>("https://my.api/foxes/1234");
+console.log(fox.name) // Type safe!
+
+// project setup
+Start from scratch 
+1. Add ESLINT
+2. Configure tsconfig
+3. Configure test cases, package.JSON
+4. With Typescript
+https://www.youtube.com/watch?v=Z6kt1N3Lx1c
+
+eslint configuration
+https://medium.com/geekculture/eslint-with-node-js-in-simple-words-cee0a0cf9167
+
+/**
+ * Project start
+ */
+npm run 
